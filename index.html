@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Baldi's Basics 2.5D - Mobile Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- مكتبة Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- شاشة حظر أجهزة الكمبيوتر -->
+    <div id="pc-blocked-screen" class="overlay hidden">
+        <div class="modal">
+            <h2>⚠️ غير مدعوم على الكمبيوتر</h2>
+            <p>هذه اللعبة مخصصة حصرياً للأجهزة المحمولة للهواتف الذكية (Android).</p>
+            <p>يرجى فتح اللعبة أو تثبيت ملف APK على هاتفك المحمول للعب.</p>
+        </div>
+    </div>
+
+    <!-- شاشة اللعبة 3D -->
+    <div id="game-container"></div>
+
+    <!-- واجهة المستخدم (HUD) -->
+    <div id="hud">
+        <div class="hud-box" id="book-counter">الكتب: <span id="books-count">0</span> / 4</div>
+        <div class="hud-box" id="stamina-container">
+            <span>اللياقة:</span>
+            <div id="stamina-bar"><div id="stamina-fill"></div></div>
+        </div>
+        <div class="hud-box" id="item-slot">
+            <span>العنصر:</span>
+            <div id="item-icon">فارغ</div>
+        </div>
+    </div>
+
+    <!-- مؤشر تصويب المنتصف (Crosshair) -->
+    <div id="crosshair">+</div>
+
+    <!-- الرسائل التوجيهية -->
+    <div id="game-message" class="hidden"></div>
+
+    <!-- عناصر تحكم الشاشات اللمسية للموبايل -->
+    <div id="touch-controls">
+        <!-- عصا التحكم للتحرك على اليسار -->
+        <div id="joystick-base">
+            <div id="joystick-stick"></div>
+        </div>
+
+        <!-- أزرار الإجراءات على اليمين -->
+        <div id="action-buttons-container">
+            <button id="btn-sprint" class="touch-btn sprint-btn">جري ⚡</button>
+            <button id="btn-use-item" class="touch-btn">ببسي 🥤</button>
+            <button id="btn-interact" class="touch-btn interact-btn">تفاعل 🖐️</button>
+        </div>
+    </div>
+
+    <!-- نافذة الرسائل والتنبيهات -->
+    <div id="overlay" class="overlay hidden">
+        <div class="modal">
+            <h2 id="overlay-title">تنبيه</h2>
+            <p id="overlay-message"></p>
+            <button id="overlay-btn" onclick="handleOverlayClick()">موافق</button>
+        </div>
+    </div>
+
+    <!-- نصائح بدء اللعبة -->
+    <div id="start-screen" class="overlay">
+        <div class="modal start-modal">
+            <h2>مرحباً بك في مدرسة بالدي!</h2>
+            <p>🎯 <b>الهدف:</b> جمع 4 كتب ذهبية والهرب عبر الأبواب!</p>
+            <p>📱 <b>التحكم اللمسي:</b></p>
+            <p>• 🕹️ <b>العصا اليسرى:</b> التحرك للأمام/الخلف والجانبين.</p>
+            <p>• 👆 <b>السحب على الشاشة (اليمين):</b> التدوير وتوجيه النظر.</p>
+            <p>• 🖐️ <b>زر التفاعل:</b> التقاط الكتب والأغراض وفتح الأبواب.</p>
+            <p>• 🥤 <b>زر الببسي:</b> إطلاق العلبة لإبعاد بالدي.</p>
+            <p>• ⚡ <b>زر الجري:</b> زيادة السرعة أثناء الضغط عليه.</p>
+            <button id="start-btn">ابدأ اللعبة الان!</button>
+        </div>
+    </div>
+
+    <!-- الأكواد البرمجية للعبة -->
+    <script src="js/assetChecker.js"></script>
+    <script src="js/updater.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
