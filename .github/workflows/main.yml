@@ -24,6 +24,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Prepare Web Assets
+        run: |
+          mkdir www
+          rsync -av --exclude='www' --exclude='.git' --exclude='.github' . www/
+
       - name: Install Capacitor CLI
         run: |
           npm init -y
@@ -31,7 +36,7 @@ jobs:
 
       - name: Initialize Capacitor App
         run: |
-          npx cap init "Baldi 3D Game" "com.baldi.mobilegame" --web-dir .
+          npx cap init "Baldi 3D Game" "com.baldi.mobilegame" --web-dir www
 
       - name: Add Android Platform
         run: |
